@@ -1,0 +1,564 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");
+
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   text-decoration: none;
+   list-style: none;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* estilo de imágenes */
+img {
+    max-width: 100%;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.header {
+    background-color: #FAFAFA;
+    padding: 150px 0 100px 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+/* Menu */
+.menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+/* Logo alineado a la izquierda */
+.logo {
+    font-size: 25px;
+    font-weight: 800;
+    color: #02b1f4;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+}
+
+/* Para que el logo se muestre bien como imagen */
+.logo img {
+    max-width: 250px; /* Ajusta este valor según el tamaño de tu logo */
+}
+
+
+.navbar {
+    display: flex;
+    gap: 20px;
+}
+
+.navbar ul {
+    display: flex;
+}
+
+.navbar ul li {
+    font-size: 18px;
+    padding: 20px;
+    color: #323232;
+    display: block;
+}
+
+.navbar ul li a:hover {
+    color: #02b1f4;
+}
+
+/* ajustar el menu en dispositivos grandes */
+#menu {
+    display: none;
+}
+
+.menu-icono {
+    width: 25px;
+}
+
+/* Botón del menu */
+.menu label {
+    cursor: pointer;
+    display: none; /* Solo visible en dispositivos pequeños */
+}
+
+.header-content {
+    display: flex;
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center;
+    width: 100%;
+}
+/*el texto centraro y justificado */
+.header-txt {
+    width: 80%;
+}
+
+.header-txt h1 {
+    line-height: 1;
+    color: #323232;
+    text-transform: uppercase;
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+.header-txt p {
+    font-size: 16px;
+    color: #818181;
+    margin-bottom: 50px;
+    text-align: justify; /* Añade esta línea para justificar el texto */
+}
+
+.header-img {
+    width: 50%;
+}
+
+.btn-1 {
+    display: inline-block;
+    padding: 11px 25px;
+    background-color: #02b1f4;
+    color: #ffffff;
+    border-radius: 15px;
+    
+/*IMAGENES CENTRADAS*/
+}
+.about{
+    padding: 100px 0;
+    display: flex;
+}
+.about-img{
+    width: 50%;
+}
+.about-img img{
+    width: 500px;
+    border-radius: 15px;
+}
+.about-txt{
+    width: 50%;
+    margin-left: 25px;
+}
+.about-txt h2{
+    color: #323232;
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+.about-txt p{
+    font-size: 16px;
+    color: #818181;
+}
+/*iconos servicio*/
+.service {
+    position: relative;
+    text-align: center;
+    overflow: hidden; /* Para ocultar el contenido que sobresale */
+}
+
+.service-icon {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    transition: transform 0.5s ease; /* Suaviza el giro */
+    perspective: 1000px; /* Agrega perspectiva */
+}
+
+.service-icon img {
+    max-width: 100%;
+    height: auto;
+    transform: rotateY(0deg); /* Estado inicial */
+    transition: transform 0.5s ease; /* Suaviza el giro */
+}
+
+.service:hover .service-icon img {
+    transform: rotateY(180deg); /* Giro al pasar el mouse */
+}
+
+.service-info {
+    display: none; /* Oculta la información por defecto */
+    margin-top: 10px; /* Espaciado */
+}
+
+.service:hover .service-info {
+    display: block; /* Muestra la información al pasar el mouse */
+}
+
+/*servicios modificado*/
+.service-icon {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    position: relative; /* Agregado para permitir el posicionamiento del tooltip */
+    perspective: 1000px; /* Para darle un efecto 3D */
+}
+
+.service-icon i {
+    font-size: 50px; /* Ajusta el tamaño del ícono según sea necesario */
+    transition: transform 0.5s ease; /* Efecto de transición al girar */
+}
+
+.service-icon:hover i {
+    transform: rotateY(180deg); /* Rota el ícono 180 grados al pasar el mouse */
+}
+
+.service-icon .tooltip {
+    position: absolute; /* Posición absoluta para mostrar el tooltip */
+    bottom: 100%; /* Coloca el tooltip por encima del ícono */
+    left: 50%;
+    transform: translateX(-50%); /* Centra el tooltip horizontalmente */
+    background-color: rgba(0, 0, 0, 0.75); /* Fondo semi-transparente */
+    color: white; /* Color del texto */
+    padding: 5px 10px; /* Espaciado del tooltip */
+    border-radius: 5px; /* Bordes redondeados */
+    visibility: hidden; /* Oculta el tooltip por defecto */
+    opacity: 0; /* Opacidad inicial */
+    transition: visibility 0s, opacity 0.5s ease; /* Efecto de desvanecimiento */
+}
+
+.service-icon:hover .tooltip {
+    visibility: visible; /* Muestra el tooltip al pasar el mouse */
+    opacity: 1; /* Opacidad al 100% */
+}
+
+/*iconos giro */
+.service-icon {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    position: relative; /* Permite posicionar el tooltip correctamente */
+    perspective: 1000px; /* Para el efecto 3D */
+}
+
+.service-icon i {
+    font-size: 50px; /* Ajusta el tamaño del ícono */
+    transition: transform 0.5s ease; /* Efecto de transición al girar */
+}
+
+.service-icon:hover i {
+    transform: rotateY(180deg); /* Rota el ícono 180 grados al pasar el mouse */
+}
+
+.service-icon .tooltip {
+    position: absolute; /* Posición absoluta para el tooltip */
+    bottom: 100%; /* Muestra el tooltip por encima del ícono */
+    left: 50%;
+    transform: translateX(-50%); /* Centra el tooltip */
+    background-color: rgba(0, 0, 0, 0.75); /* Fondo semi-transparente */
+    color: white; /* Color del texto */
+    padding: 5px 10px; /* Espaciado */
+    border-radius: 5px; /* Bordes redondeados */
+    visibility: hidden; /* Oculta el tooltip por defecto */
+    opacity: 0; /* Opacidad inicial */
+    transition: visibility 0s, opacity 0.5s ease; /* Efecto de desvanecimiento */
+}
+
+.service-icon:hover .tooltip {
+    visibility: visible; /* Muestra el tooltip al pasar el mouse */
+    opacity: 1; /* Opacidad al 100% */
+}
+
+/*SERVICIOS 1 */
+.servicios h2 {
+    text-align: center;
+    margin-top: -200px; /* Asegúrate de que este valor no sea demasiado alto */
+    margin-bottom: 20px; /* Reduce el margen inferior a 10px */
+}
+main.servicios {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px; /* Reduce el padding a 10px */
+}
+    /*SERVICIOS 2 centrar las imagenes y darles un toque de letra oscura*/
+    
+
+.services {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se ajusten a la siguiente línea si es necesario */
+    justify-content: center; /* Centra todos los servicios horizontalmente */
+    gap: 30px; /* Espacio entre los servicios */
+    padding: 50px 0;
+    max-width: 1200px; /* Ancho máximo para centrar */
+    margin: 0 auto; /* Centra el contenedor general */
+}
+
+/* Efecto hover en el servicio */
+.service:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+/* Contenedor de cada servicio */
+.service {
+    width: 200px; /* Tamaño del servicio */
+    height: 200px;
+    display: flex;
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Alinea el contenido verticalmente */
+    flex-direction: column; /* Coloca el ícono y el texto en columna */
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-align: center; /* Centra el texto */
+}
+
+/* Ajustes del ícono de servicio */
+.service-icon {
+    width: 100px; /* Tamaño del ícono */
+    height: 100px;
+    display: flex; /* Asegura que el ícono se centre dentro del servicio */
+    justify-content: center; /* Centra horizontalmente el ícono */
+    align-items: center; /* Centra verticalmente el ícono */
+    margin-bottom: 10px;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Asegurar que las imágenes del ícono no excedan su contenedor */
+.service-icon img {
+    max-width: 100%; /* La imagen ocupa el 100% del ancho del ícono */
+    height: auto; /* Mantiene la proporción de la imagen */
+}
+.servicios-content {
+    display: flex;          /* Flexbox para alinear los elementos */
+    flex-wrap: wrap;       /* Permitir que los elementos se envuelvan */
+    justify-content: center;/* Centra los elementos en el contenedor */
+}
+
+.servicios-1 {
+    display: flex;          /* Flexbox para alinear el ícono y el texto */
+    flex-direction: column; /* Coloca el ícono arriba y el texto abajo */
+    align-items: center;    /* Centra el contenido horizontalmente */
+    margin: 20px;          /* Margen entre los elementos */
+}
+
+.service-icon {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    position: relative; /* Permite posicionar el tooltip correctamente */
+    perspective: 1000px; /* Para el efecto 3D */
+}
+
+.service-icon i {
+    font-size: 40px; /* Ajusta el tamaño del ícono */
+    transition: transform 0.5s ease; /* Efecto de transición al girar */
+}
+
+.service-icon:hover i {
+    transform: rotateY(180deg); /* Rota el ícono 180 grados al pasar el mouse */
+}
+
+.service-icon .tooltip {
+    position: absolute; /* Posición absoluta para el tooltip */
+    bottom: 100%; /* Muestra el tooltip por encima del ícono */
+    left: 50%;
+    transform: translateX(-50%); /* Centra el tooltip */
+    background-color: rgba(0, 0, 0, 0.75); /* Fondo semi-transparente */
+    color: white; /* Color del texto */
+    padding: 5px 10px; /* Espaciado */
+    border-radius: 5px; /* Bordes redondeados */
+    visibility: hidden; /* Oculta el tooltip por defecto */
+    opacity: 0; /* Opacidad inicial */
+    transition: visibility 0s, opacity 0.5s ease; /* Efecto de desvanecimiento */
+}
+
+.service-icon:hover .tooltip {
+    visibility: visible; /* Muestra el tooltip al pasar el mouse */
+    opacity: 1; /* Opacidad al 100% */
+}
+}
+.servicios-1 i {
+    text-align: center;
+    font-size: 36px; /* Ajusta el tamaño del icono */
+    margin-bottom: 10px; /* Agrega un margen inferior al icono */
+}
+
+/*BOTON CENTRADO*/
+.btn-container {
+    display: flex;
+    justify-content: center; /* Centra el botón horizontalmente */
+    margin: 20px 0; /* Espacio arriba y abajo del botón */
+}
+
+.btn-registrate {
+    display: block; /* Cambiar a bloque para que tome todo el ancho del contenedor */
+    margin: 0 auto; /* Esto centrará el botón */
+    padding: 30px 15px; /* Ajusta el padding según sea necesario */
+    background: linear-gradient(90deg, #00c6ff, #0072ff); /* Gradiente azul */
+    color: #ffffff; /* Color del texto inicial */
+    border-radius: 15px;
+    transition: color 0.3s ease; /* Transición suave solo en el color del texto */
+    border: none; /* Sin borde */
+    cursor: pointer; /* Cambia el cursor a mano al pasar sobre el botón */
+}
+
+.btn-registrate:hover {
+    background: linear-gradient(90deg, #00c6ff, #0072ff); /* Mantén el gradiente azul */
+    color: #000000; /* Cambia el color del texto a negro al pasar el mouse */
+}
+/*centrar redes sociales*/
+.follow-us {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 24px; /* Ajusta el tamaño de fuente para que sea más llamativo */
+    font-weight: bold; /* Añade negrita para destacar */
+    color: white; /* Asegura que el texto sea visible en el fondo azul */
+}
+
+/* Fondo degradado para el footer */
+footer {
+    background: linear-gradient(135deg, #0073e6, #00c6ff); /* Degradado de azul */
+    padding: 40px 0; /* Espaciado alrededor del contenido del footer */
+    color: white;
+}
+
+/* Estilos para centrar los iconos de redes sociales */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    gap: 20px; /* Espaciado entre los iconos */
+}
+
+/* Estilos de los iconos */
+.social-icons i {
+    font-size: 36px;
+    color: #ffffff; /* Los iconos son inicialmente blancos */
+    background-color: #000000; /* Fondo negro para destacar los iconos */
+    padding: 15px;
+    border-radius: 50%; /* Redondear los iconos para hacerlos más originales */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Añade una transición para el hover */
+    margin: 0 10px; /* Espaciado entre los iconos */
+}
+
+/*  redes sociales */
+.social-icons i:hover {
+    background-color: #02b1f4; /* Cambia el fondo del icono al color azul en hover */
+    color: #000000; /* Cambia el color del icono a negro al pasar el mouse */
+    transform: scale(1.1); /* Agranda los iconos ligeramente al pasar el mouse */
+}
+
+/* Estilos del footer color azul y color de los iconos */
+footer {
+    background-color: #0072ff; /* Color azul para el fondo del footer */
+    padding: 20px 0; /* Espaciado dentro del footer */
+    text-align: center; /* Centramos el contenido */
+    color: #ffffff; /* Letras blancas por defecto */
+}
+
+/* Estilos para los textos dentro del footer */
+footer a, footer p {
+    color: #ffffff; /* Inicialmente blanco */
+    text-decoration: none; /* Sin subrayado */
+    transition: color 0.3s ease; /* Transición suave para el color */
+}
+
+footer a:hover, footer p:hover {
+    color: #000000; /* Cambia a negro cuando se pasa el mouse */
+}
+
+/* Estilo del copyright centrado */
+.copyright {
+    margin: 20px 0;
+    color: white; /* Color de texto en blanco para que destaque en el fondo azul */
+}
+/*estilo informacion*/
+/* Estilo para las etiquetas emergentes */
+.navbar ul li {
+    position: relative; /* Posición relativa para que el contenido emergente se alinee correctamente */
+    font-size: 18px;
+    padding: 20px;
+    color: #323232;
+    display: block;
+    cursor: pointer; 
+}
+
+
+.navbar ul li:hover::after {
+    content: attr(data-info); /* Usa el atributo personalizado para mostrar la información */
+    position: absolute;
+    bottom: -40px; /* Ajusta según el espacio deseado debajo del botón */
+    left: 50%;
+    transform: translateX(-50%);
+    
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    white-space: nowrap; /* Evita que el texto se corte en varias líneas */
+    font-size: 14px;
+    z-index: 10;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.navbar ul li::after {
+    content: '';
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.mision-vision {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .mision-vision .info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .mision-vision:hover .info {
+    display: block;
+  }
+/* Misión y Visión historia beneficios + */
+.mision-vision {
+    position: relative;
+    display: inline-block;
+}
+
+.mision-vision .info {
+    position: absolute;
+    top: 100%; 
+    left: 50%;
+    transform: translateX(-50%); /* Centra el tooltip horizontalmente */
+    width: max-content; 
+    display: none;
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo semi-transparente más oscuro */
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 10; 
+}
+
+.mision-vision:hover .info {
+    display: block;
+}
